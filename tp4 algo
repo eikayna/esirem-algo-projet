@@ -1,7 +1,20 @@
 #include <stdio.h>
 
+
+
+struct Carte L[100]; // Supposons une taille maximale de 100 cartes
+
+
+void liste_cartes() {
+    int i = 0; // Déclarer la variable i
+    while (1) {
+        struct Carte carte;
+        L[i] = carte;
+        i++; // Incrémenter i à chaque itération
+    }
+}
+
 int main() {
-    printf("Hello world!\n");
+    liste_cartes(); 
     return 0;
 }
-    
