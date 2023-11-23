@@ -60,16 +60,16 @@ int main() {
     }
     return 0;
 }
-//initialiser de la Main de la banque 
+//2.2initialiser de la Main de la banque 
 void initialiserMain(struct Main *main) {
     main->nbCartes = 0;
 }
-//initialiser de la Main du joueur
+//2.2initialiser de la Main du joueur
 struct Main {
     struct Carte cartes[10]; 
     int nombreCartes;        
 };
-// Fonction pour afficher du  main
+// 2.3 Fonction pour afficher du  main
 void afficherMain(struct Main *main) {
     printf("Cartes dans la main :\n");
 
