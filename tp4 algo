@@ -60,4 +60,20 @@ int main() {
     }
     return 0;
 }
-    
+//initialiser de la Main de la banque 
+void initialiserMain(struct Main *main) {
+    main->nbCartes = 0;
+}
+//initialiser de la Main du joueur
+struct Main {
+    struct Carte cartes[10]; 
+    int nombreCartes;        
+};
+// Fonction pour afficher du  main
+void afficherMain(struct Main *main) {
+    printf("Cartes dans la main :\n");
+
+    for (int i = 0; i < main->nombreCartes; ++i) {
+        printf("Carte %d: Valeur %d, Couleur %d\n", i + 1, main->cartes[i].valeur, main->cartes[i].couleur);
+    }
+}
