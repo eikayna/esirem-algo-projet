@@ -1,20 +1,33 @@
-#include <stdio.h>
+// Structure pour une liste de cartes
+struct ListeCartes {
+    struct Carte *cartes;
+    size_t nombreDeCartes;
+};
 
+// Fonction pour initialiser une liste de cartes
+    struct ListeCartes initialiserListeCartes(size_t taille) {
+    struct ListeCartes liste;
+    liste.cartes = malloc(taille * sizeof(struct Carte));
+    liste.nombreDeCartes = taille;
+    return liste;
+}
 
-
-struct Carte L[100]; // Supposons une taille maximale de 100 cartes
-
-
-void liste_cartes() {
-    int i = 0; // Déclarer la variable i
-    while (1) {
-        struct Carte carte;
-        L[i] = carte;
-        i++; // Incrémenter i à chaque itération
-    }
+// Fonction pour libérer la mémoire allouée pour une liste de cartes
+void libererListeCartes(struct ListeCartes *liste) {
+    free(liste->cartes);
+    liste->nombreDeCartes = 0;
 }
 
 int main() {
-    liste_cartes(); 
+    // Exemple d'utilisation de la structure de liste de cartes
+    size_t tailleDuDeck = 52;
+    struct ListeCartes monDeck = initialiserListeCartes(tailleDuDeck);
+
+    // ... Utilisation du deck ...
+
+    // Libération de la mémoire allouée pour le deck
+    libererListeCartes(&monDeck);
+
     return 0;
 }
+
