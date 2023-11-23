@@ -1,4 +1,4 @@
-// Structure pour une liste de cartes
+// 1.1 Structure pour une liste de cartes
 struct ListeCartes {
     struct Carte *cartes;
     size_t nombreDeCartes;
@@ -19,15 +19,14 @@ void libererListeCartes(struct ListeCartes *liste) {
 }
 
 int main() {
-    // Exemple d'utilisation de la structure de liste de cartes
-    size_t tailleDuDeck = 52;
-    struct ListeCartes monDeck = initialiserListeCartes(tailleDuDeck);
-
-    // ... Utilisation du deck ...
-
-    // Libération de la mémoire allouée pour le deck
+  
     libererListeCartes(&monDeck);
 
     return 0;
 }
+//1.4 Structure pour un joueur
+struct Joueur {
+    struct ListeCartes main;  // liste de cartes du joueur
+    int montant;  // montant d'argent du joueur
+};
 
