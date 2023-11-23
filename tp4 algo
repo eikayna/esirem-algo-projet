@@ -1,7 +1,63 @@
+//Partie MOUhid 
 #include <stdio.h>
-
+#include <stdlib.h>
+#include <time.h>  
+//1.1 Enumération 
+enum Couleur {
+    CARREAU,   
+    TREFLE,    
+    COEUR,     
+    PIQUE,      
+};
+//1.2 Structure pour une carte
+struct Carte {
+    int valeur; 
+    enum Couleur couleur;
+};
+int genererValeurCarte() {
+    srand(time(NULL));
+    return rand() % 10 + 2;
+}
+enum Couleur genererCouleurCarte() {
+    srand(time(NULL)); 
+    return rand() % 4; 
+}
 int main() {
-    printf("Hello world!\n");
+    struct Carte maCarte = {genererValeurCarte(),genererCouleurCarte() };
+
+    printf("La carte a une valeur de ");
+
+    if (maCarte.valeur >= 2 && maCarte.valeur <= 10) {
+        printf("%d", maCarte.valeur);
+    } else {
+        switch (maCarte.valeur) {
+            case 10:
+                printf("autre cas (J;Q;K)"); 
+                break;
+            case 1:
+                printf("As");
+                break;
+             case 11:
+                printf("As");
+                break;
+        }
+    }
+    printf(" et une couleur de ");
+
+    switch (maCarte.couleur) {
+        case CARREAU:
+            printf("Carreau.\n");
+            break;
+        case TREFLE:
+            printf("Trèfle.\n");
+            break;
+        case COEUR:
+            printf("Cœur.\n");
+            break;
+        case PIQUE:
+            printf("Pique.\n");
+            break;
+    }
     return 0;
 }
     
